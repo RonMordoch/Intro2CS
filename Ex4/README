@@ -1,0 +1,31 @@
+﻿mordoch.ron
+#########
+Ron Mordoch
+
+################
+# DESCRIPTION #
+################
+This zip file contain 3 files:
+hangman.py
+check_update_word_pattern.py
+README
+
+hangman.py runs a game of the classic hangman using pre-set functions supplied in hangman helper.
+the user interacts with the GUI and the function returns the desired values.
+
+check_update_word_pattern.py which runs 4 values on the update_word_function from hangman.py and prints a success message wheter the function did print the correct values.
+
+
+##################
+# section C – q1 #
+##################
+I choose the following values for the test function with the following cases:
+'compsci', '_______', 'q'- empty pattern, letter not in pattern / word
+'code', '____', 'd' - empty pattern, letter in word but not in pattern
+'pattern', '__tt___', 't' - 1 letter revealed, letter in word, letter is revealed in pattern
+'pattern', '__tt___', 'c'- 1 letter revealed in pattern, letter not in word
+
+##################
+# section C – q2 #
+##################
+to change the game so we could play with hebrew letter we would have to change the conditionals to check if letter is from alef-bet, and change the indexes becauses alef-bet is RTL while english is LTR.

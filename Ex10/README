@@ -1,0 +1,114 @@
+mordoch.ron
+#########
+Ron Mordoch
+
+############
+#########
+#### ######
+
+==============================
+= README for Ex10: Asteroids =
+==============================
+
+==================
+=  Description:  =
+==================
+This exercise is an implementation of the classis Asteroids game.
+In this zip there are 4 .py files:
+
+1. asteroids_main.py
+contains the GameRunner class, an object that manage all objects
+into a single game untill completion or exit.
+contains the following functions: (except run & do_loop)
+game_loop - a constant loop that runs the game continuously.
+asteroids_lst = create a list of asteroid in the begging of
+		the game for the class attribute self.asteroids.
+end_game - checks if one of the requirement for endgame are met,
+	if so, exits the game.
+move - moves all the object in the screen.
+user_input - together with the Screen class, manage input
+	from user received by key-strokes and executes functions correspondingly.
+teleport_ship - called from user_input, teleport ship into a random
+	new valid location.
+build_torpedo - build a new Torpedo class if user pressed a certain
+		key, called from user_input.
+torpedo_lifetime - reduces lifetime per loop, if lifetime has reached
+		zero, removes the torpedo.
+draw_obj - draws the ship, all the asteroids and all the torpedos currently
+		in game every loop.
+intersections_asteroids_ship - check if ship has collided with an asteroid,
+		if true, remove asteroid and decrease ship lifes by one.
+intersections_asteroids_torpedo - check if any torpedo has collided with
+	any of the asteroids.
+	if true, remove torpedo, split the new asteroid per exercise insturctions.
+new_asts - called from the previous function, creates new Asteroid class
+	objects that are sub-asteroids of the asteroid that was hit.
+new_ast_speed - calculate speed for new asteroids using the formula
+	described in the exercise.
+update_score - update player score when a player has successfuly hit
+	ship with a torpedo.
+
+2. ship.py:
+contains the class Ship, an object that can move within the board.
+Has location, speed, heading (angle), lives and radius.
+
+3. asteroid.py:
+contains the class Asteroid, an object that moves at a random speed with
+a random starting location. Has location, speed, size and radius.
+
+4. torpedo.py
+contains the class Torpedo, an object that is fired by the ship.
+Has location, speed, heading(angle), radius and lifetime.
+
+also, the function generate_location that returns a random tuple of
+x-location, y-location values.
+
+=======================
+=  Special Comments:  =
+=======================
+# 3 Considerations when writing the program:
+1) How to draw all of the objects each loop:
+The drawing functions are part of Screen class and cannot be modified.
+Therefore, instead of having to draw each object seperately inside game loop,
+i.e. drawing ship, iterating over all asteroids and then drawing them, 
+iterating over all torpedos and then drawing them, we choose to the define
+the function draw_object that draws the ship, all of the torpedos and
+asteroids, and this function is called from game loop. That makes for 
+a cleaner, more modular code and thus game_loop is shorter and less
+cumbersome.
+
+2) Move all functions:
+Instead of having different functions moving each object ( ship,
+asteroid, torpedo) we set a single function that creates a list
+of all objects in game, iterate once over every object and move them.
+this is achieved by having a coherent, consistent set of 'get' functions
+for each different class object, thus allowing us to approach each
+object's different values and moving them respectively.
+Also, since we go over the list of *all* objects in game, we use only
+one 'for' loop, instead of using two 'for' loops - one for asteroids
+and one for torpedos.
+
+3) Where to position the ship's firing mechanism:
+The ship can fire torpedos when the user presses the 'space' key.
+The obvious logic would be that this is a method of the ship class,
+but if you put the firing function inside ship, you won't have control
+over limiting the torpedos fired in game, because the ship does not 
+know about the existence of asteroids, and thus making it harder to
+enforce the limit of 10 'living' torpedos fired per ship.
+Therefore, we placed the build_torpedo function inside the GameRunner
+class, thus we can enforce the logic of torpedos intersection with
+asteroids, maximum number of torpedos 'out there', and this makes it
+easier to control the game's mechanisms and to follow the game's rules.
+
+=============================
+=  List Of submitted files: =
+=============================
+
+1. asteroids_main.py
+2. ship.py
+3. asteroid.py
+4. torpedo.py
+5. README
+6. AUTHORS
+
+

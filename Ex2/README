@@ -1,0 +1,18 @@
+mordoch.ron
+#########
+Ron Mordoch
+
+Description:
+This exercise we defined 9 function to carry out mathematical operations,
+using different operators such as +,-,*,**,/,>,<,!=, and different functions
+ defined with print,split,if,else,return.
+
+Special comments:
+Function 9 is the function that tests function 4. I used values ranging from
+(-3, -2, -1) to (1, 2, 3) adding 1 every time. I picked these values because
+they cover every possbile combinations: all numbers are negative,
+2 negative and 1 zero, 1 negative zero and 1 positive, one zero and 2
+positive, 3 positive. This covers every possible combination of numbers
+inserted to the function.
+
+

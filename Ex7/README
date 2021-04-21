@@ -1,0 +1,34 @@
+mordoch.ron
+#########
+Ron Mordoch
+
+#####################
+#  EX7 README FILE  #
+# R E C U R S I O N #
+
+###############
+# DESCRIPTION #
+
+ex7.py contains 10 'main' functions, utizilting recursion for different
+purposes.
+
+####################
+# SPECIAL COMMENTS #
+
+
+####################
+# Runtime Analysis #
+
+1. is_prime - if n <= 1 the function returns. Else it returns 
+the value of the recursive helper function, which in the worst case will run
+ n/2 times until i == 1,
+therefore we have O(n/2).
+2. print_no_repetition_sequences - the main function calls the recursive
+function, which has a loop that runs until i = len(char_list), and the last
+statement is when we still did not print all words, the recursive function is
+called again n times on the sliced list, Therefore we have O(n**2).
+3.flood_fill - the main function runs the recursive helper function, which
+ in the worst case, e.g. empty dot in the middle of image with all 2
+  horizontal and 2 vertical directions empty, will runs the 4 ifs to fill all
+   directions, and each if runs the recursive function again, thus
+    we have O(n**4).

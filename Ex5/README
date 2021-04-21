@@ -1,0 +1,65 @@
+mordoch.ron
+#########
+Ron Mordoch
+
+###############
+# DESCRIPTION #
+###############
+
+ex3.py contains 3 files:
+README
+wordsearch.py
+check_wordsearch.py
+
+wordsearch.py contains 6 "major" functions:
+
+* check_input_args(args): checks the validity of the given arguments in the written order. using the following functions:
+			check_parameter_count(args) - first we check if the number of given parameters is correct.
+			does_file_exist(file) - a function that returns True is file exists. used inside the next function.
+			check_existing_file_word(args) - using the does_file_exist function, checks if word file exists.
+			check_existing_file_matrix(args) - using the does_file_exist function, checks if matrix file exists.
+			check_direction_parameter(args) - checks the validity letters of the direction string.
+	we then run all functions one by one.
+			
+* read_wordlist_file(filename): after we checked that file exists, we load it into a list.
+* read_matrix_file(filename): after we checked that file exists, we load it into a list.
+* find_words_in_matrix(word_list, matrix, directions): this function use a total of 9 functions.
+						read_matrix_file - for regular left to right matrix.
+						and then 8 more functions that rotate the matrix each time for different search directions.
+						search_for_words(word_list, matrix) - search for words in the matrix, matrix changing for different directions.
+						return_dictionary(lst) - return a dictionary of words as keys and number of appearances as values.
+		the function then turns the dictionary into a list of tuples, each tuple including a key and value.
+* write_output_file(results, output_filename): receives the results, convert tuples into lists inside the list, join each sub-list into single string and write to file.
+						we have to do all the convertions because we can only  write strings into files! not lists nor tuples.
+* main(args) - runs the check_input_args function, is it returns None all is well and then proceeds to run the rest of the function. 
+		else, it will print the check_input_args function which will print the matching error message.
+
+#############################################################################
+# EXPLANATION FOR DIAGONAL MATRICES
+# In order to understand the diagonal matrix function we must do some math.
+# Let h be the height of the matrix (row_count), and w the width of the
+# matrix (column_count). Define p as "the p-th diagonal of the matrix", and q
+# as "the q-th item along the -pth diagonal". Hence, the range of p is
+# (0, h+w -1) -1 is because the "main" longest diagonal appear twice.
+# Lets translate (p,q) to (x,y) coordinates. as p increases,
+# x decreases linearly, and as q increases x increases linearly. when (p,q)
+# = (0,0), x equals h. Thus, x = h  - p +q .
+# y does not change with p (for fixed q's), but it does linearly increases
+# as q increases. When (p,q) = (0,0), y = q. Thus, y = q.
+# Therefore, for correct values of x,y :
+# (0 <= x = h - p + q < h) and (0 <= y = q < w)
+# which is max(p - h + 1, 0) <= q < min(p + 1, w)
+# And now we can iterate over p and q:
+# for p in range(h + w - 1):
+#    for q in range(max(p-h+1, 0), min(p+1, w))
+#        L[h - p + q - 1][q]
+# DISCLAIMER: This is probably just complexing things, but it is the only way I found to print all diagonals.
+#############################################################################
+
+check_wordsearch.py includes 3 matrices and 3 words lists.
+we define 3 functions that check all 3 words lists on all 3 matrices and return True if the correct values were calculated by search_for_words.
+The first word list contains 3 different words, the second is an empty list, and the third containts the same word but everytime a different letter is capital.
+The first matrix contains different letters and words from the first and third list, the second is an empty list, and the third is different variations of "cat" with extra letters.
+We run the function on all lists, and all on matrices, and return true if all tests passed.
+
+

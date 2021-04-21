@@ -1,0 +1,56 @@
+mordoch.ron
+#########
+Ron Mordoch
+
+#####################
+#  EX9 README FILE  #
+#  RUSH-HOUR - OOP  #
+
+###############
+# DESCRIPTION #
+
+in ex9 we use 3 files:
+
+1. car.py
+A class that create car object of given name, length location and
+ orientation.
+The class has the following methods
+-car_coordinates : return all coordinates of car
+-possible moves : return a dictionary of all possbile moves for car
+-movement_requirement : return the location for the next move
+-move : tries to move car to the next location, if successful return True,
+ else return False.
+get_name : return the car's name
+
+2.board.py
+A class that creates a board object, wherein the cars can move according 
+to the board's rules. The board is set at a fixed size when initializing it.
+The class has the following methods
+-__str__ : return a readable string of the board's current status.
+-cell_list : return a list of all cells in board.
+-possible_moves : return a list of all possible moves a car can
+ make in accordance with the board's limits and rules.
+-target_location : return the fixed value of the board's target location.
+-add_car : adds a valid car to board, if successful return True, else false.
+-move_car : move a car in accordance with the board's rules.
+ return True is successful, else False.
+
+3. game.py:
+A class that manages the games and all of its components and runs a single
+ game of Rush-Hour.
+The class has the following methods:
+-single_turn : receives input from user and runs a single turn of the game.
+-play : prints the board every turn, and is the main driver of the game
+ until game is finished. manages this by using a while loop.
+
+game.py also contains the main function, that imports all classes and the
+helper function, and receives input from user using sys module. The main
+function first create an empty board, loads the given json file, iterate
+over all cars values and create car object only when a valid car is found,
+i.e. a car that fits the car,board and game classes' rules.
+Then it adds the valid car to the board, creates a game object with the
+previously created board, and runs the game until completion.
+
+####################
+# SPECIAL COMMENTS #
+NONE

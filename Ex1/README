@@ -1,0 +1,16 @@
+mordoch.ron
+#########
+Ron Mordoch
+
+Websites I used for this exercise:
+https://docs.python.org/3.3/library/turtle.html
+https://docs.python.org/3/library/math.html
+https://en.wikipedia.org/wiki/Golden_ratio
+
+In the first part of the exercise we will use the turtle module and define
+ four functions in order to draw a flower bed.
+The first function will draw a single petal and will serve as the basic
+ sub-function for the following three functions.
+
+In the second part of the exercise we will use the math module for
+mathematical calculations.

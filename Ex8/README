@@ -1,0 +1,36 @@
+mordoch.ron
+#########
+Ron Mordoch
+
+#####################
+#  EX8 README FILE  #
+#    BACKTRACKING   #
+
+###############
+# DESCRIPTION #
+
+ex8.py is split into 2 parts:
+
+1. A sudoku-solver program:
+This program is divided into 7 functions:
+is_empty - checks if board is empty
+search_rows - searches all the rows of the board
+search_columns - searches all the columns of the board
+search_grids - searchs all the squared grids of the board
+valid_location - checks if location is valid for a certain number
+board_solver - solves the board if possible
+sudoku_solver - main function, returns True if board is solvable and
+		then changes board to a solved one.
+		else, return False.
+
+2. subsets
+This contain 3 main functions:
+print_k_subets - print all k subsets of (1,2,.., n-1) set using 2 helper functions.
+fill_k_subsets- fill a list with all k subsets of 
+		(1,2,.., n-1) set using 2 helper functions.
+return_k_subsets - returna list with all k subsets of 
+		(1,2,.., n-1) set using a helper function.
+
+####################
+# SPECIAL COMMENTS #
+NONE
